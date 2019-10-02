@@ -1,0 +1,25 @@
+/**
+ * index.scss
+ * - Add any styles you want here!
+ */
+
+body {
+  background: #f5fackgr;
+  font-size: large;
+  color: darkgrey;
+}
+p {
+  text-indent: 5%;
+}
+p:first-of-type {
+  color: pink;
+}
+p:nth-child(even) {
+  font-variant: small-caps;
+}
+p:nth-child(2) {
+  border: solid purple 5px;
+}
+p:last-of-type {
+  text-transform: uppercase;
+}
