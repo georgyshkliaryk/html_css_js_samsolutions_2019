@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>FORM_TASK</title>
+    <link href="styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1>Оставьте свой отзыв</h1>
+    <div>Помогите нашим отелям стать лучше! Оставьте отзыв о них, а также о посещенных вами достопримечательностях</div>
+</header>
+<section1>
+    <div>
+        <span>Ваше общее впечатление:</span><br>
+        <input type="radio" name="impression" id=impression1>
+        <label for="impression1">Скорее положительное</label><br>
+        <input type="radio" name="impression" id=impression2>
+        <label for="impression2">Скорее отрицательное</label><br>
+        <input type="radio" name="impression" id=impression3>
+        <label for="impression3">Затрудняюсь ответить</label><br>
+    </div>
+    <div>
+        <span>Представьтесь:</span><br>
+        <label for="name">Имя*:</label>
+        <input type="text" name="fio" id="name" placeholder="ПЕТР"><br>
+        <label for="surname">Фамилия*:</label>
+        <input type="text" name="fio" id="surname" placeholder="ИВАНОВ"><br>
+        <label for="fathername">Отчество*:</label>
+        <input type="text" name="fio" id="fathername" placeholder="АЛЕКСАНДРОВИЧ"><br>
+    </div>
+</section1>
+<section>
+    <div>Контактная информация:</div>
+    <div>
+        <label for="phone">Телефон*:</label>
+        <input type="tel" name="contacts" id="phone" placeholder="ВВЕДИТЕ ТЕЛЕФОН">
+        <label for="email">Электронная почта*:</label>
+        <input type="email" name="contacts" id="email" placeholder="ВВЕДИТЕ E-MAIL">  
+    </div>
+</section>
+<section>
+    <div>Детали поездки:</div>
+    <div class="flex">
+        <div>
+            <label for="calendar">Даты поездки:</label><br>
+            <input type="date" name="calendar"
+            max="2019-01-01" min="2021-12-31">
+        </div>
+        <div>
+            <label for="country">Выберите страну:</label><br>
+            <select name="country" id="country">
+                <option value=Беларусь selected>Беларусь</option>
+                <option value=Италия>Италия</option>
+                <option value=Эстония>Эстония</option>
+            </select>
+        </div>
+        <div>
+            <input type="checkbox" name="places" id="place1" checked>
+            <label for="place1">Гора лысая</label><br>
+            <input type="checkbox" name="places" id="place2" checked>
+            <label for="place2">Национальная библиотека</label><br>
+            <input type="checkbox" name="places" id="place2">
+            <label for="place3">Гродненский замок</label><br>
+        </div>
+    </div>
+</section>
+<section>
+    <div>Оцените качество услуг гида:</div>
+    <div class="flex">
+    <div>
+    <label for="lang">На родном языке</label><br>
+    <input type="checkbox" name="lang" id="lang" checked>
+    </div>
+    <div>
+    <input type="range" id="start" name="volume" min="0" max="100" placeholder="63">
+    </div>
+    </div>
+    
+
+</section>
+<button id="openDialog">Открыть окно</button>
+<dialog>
+</dialog>
+<p><button id="closeDialog">Закрыть окно</button></p>
+<script>
+        var dialog = document.querySelector('dialog');
+        document.querySelector('#openDialog').onclick = function() {
+         dialog.show(); // Показываем диалоговое окно
+        }
+        document.querySelector('#closeDialog').onclick = function() {
+         dialog.close(); // Прячем диалоговое окно
+        }
+      //  var I = document.getElementById('name').value;
+       // document.querySelector("dialog").innerHTML = document.getElementById("name").value;
+    function Func(){
+    document.querySelector('dialog').innerHTML = 'Имя: ' + document.getElementById("name").value + '\n' +
+    'Фамилия: ' + document.getElementById("surname").value + '\n' +
+    'Отчество: ' + document.getElementById("fathername").value + '\n' +
+    'Телефон: ' + document.getElementById("phone").value + '\n' +
+    'Email: ' + document.getElementById("email").value + '\n' +
+    'Страна: ' + document.getElementById("country").value + '\n';
+    }
+    document.getElementById("openDialog").onclick = Func;
+
+</script>
+
+<nav>
+    
+</nav>
+
+
+</body>
+</html>

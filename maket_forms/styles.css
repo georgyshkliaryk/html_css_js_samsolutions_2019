@@ -1,0 +1,116 @@
+body {
+    font-family: PT Sans;
+    color: #000000; 
+    font-size: 28px;
+    line-height: 36px;  
+}
+h1 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 62px;
+    text-transform: uppercase;
+}
+header {
+    text-align: center;
+    margin-bottom: 2em;
+}
+header > div {
+    margin: 0 auto;
+    font-size: 24px;
+    line-height: 31px;
+    color: #B3B3B3;
+    width: 847px;
+    text-transform: uppercase;
+}
+section1 {
+    display: flex;
+    text-align: center;
+    margin-bottom: 5em;
+}
+section1 span {
+    display: inline-block;
+    text-transform: uppercase;
+    margin-bottom: 1em;
+    font-size: 28px;
+    line-height: 36px; 
+    font-weight: bold;
+}
+section1 div {
+    width: 49%;
+    font-size: 24px;
+    line-height: 31px;
+}
+section1 div:nth-child(1) {
+    border-right: 2px solid #B1B1B1;
+}
+[name="fio"] {
+    background: #E5E5E5;
+    height: 1.5em;
+}
+#name {
+    margin-left: 7em;
+}
+#surname {
+    margin-left: 3em;
+}
+#fathername {
+    margin-left: 3em;
+}
+section>div {
+    text-align: center;
+}
+[name="contacts"] {
+    margin-left: 2em;
+    background: #E5E5E5;
+    height: 3em;
+    width: 15em;
+}
+section>div:nth-child(1) {
+    text-transform: uppercase;
+    font-size: 28px;
+    line-height: 36px; 
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+#phone {
+    margin-right: 15%;
+}
+section {
+    margin-bottom: 5em;
+}
+[name="country"] {
+    width: 15em;
+    height: 2em;
+}
+.flex {
+    display: flex;
+    align-content: space-around;
+    margin: 0 12% 0 12%;
+    }
+.flex>div {
+    margin: 0 auto;
+}
+[name="volume"] {
+    width: 20em;
+}
+#openDialog {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 8em;
+    height: 3em;
+}
+#closeDialog {
+    width: 8em;
+    height: 3em;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+dialog {
+    position: fixed;
+    left: 3em;
+    top: 8em;
+    width: 40em;
+}
