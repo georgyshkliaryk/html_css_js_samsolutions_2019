@@ -16,12 +16,15 @@
 <section1>
     <div>
         <span>Ваше общее впечатление:</span><br>
-        <input type="radio" name="impression" id=impression1>
+        <input type="radio" name="impression" id=impression1 value="0.8">
         <label for="impression1">Скорее положительное</label><br>
-        <input type="radio" name="impression" id=impression2>
+        <input type="radio" name="impression" id=impression2 value="0.3">
         <label for="impression2">Скорее отрицательное</label><br>
-        <input type="radio" name="impression" id=impression3>
+        <input type="radio" name="impression" id=impression3 value="0.5">
         <label for="impression3">Затрудняюсь ответить</label><br>
+        <div id="imp">
+            <meter value="0.1">текст</meter>
+        </div>
     </div>
     <div>
         <span>Представьтесь:</span><br>
@@ -46,9 +49,8 @@
     <div>Детали поездки:</div>
     <div class="flex">
         <div>
-            <label for="calendar">Даты поездки:</label><br>
-            <input type="date" name="calendar"
-            max="2019-01-01" min="2021-12-31">
+            <label for="calendar">Дата поездки:</label><br>
+            <input type="date" name="calendar" id="triptime" value="2019-07-18">
         </div>
         <div>
             <label for="country">Выберите страну:</label><br>
@@ -80,38 +82,54 @@
     </div>
     </div>
     
-
 </section>
-<button id="openDialog">Открыть окно</button>
-<dialog>
+<section>
+    <div>Галерея:</div>
+</section>
+<section>
+    <div>Опишите свои эмоции:</div>
+    <textarea name='rate' id='rate'></textarea><br>
+    <input type='submit' value='Отправить отзыв' id="send">
+</section>
+<button id="openDialog">Итоговая информация</button>
+<dialog> 
+<h3>Итоговая информация</h3>
+<p></p>
+<p></p>
+<button id="closeDialog">Закрыть</button>
 </dialog>
-<p><button id="closeDialog">Закрыть окно</button></p>
+
+
 <script>
         var dialog = document.querySelector('dialog');
+        
         document.querySelector('#openDialog').onclick = function() {
-         dialog.show(); // Показываем диалоговое окно
+        dialog.show(); 
+        document.querySelector('dialog>p:nth-child(2)').innerHTML = '<b>Имя:</b> ' + document.getElementById('name').value + '<br>' +
+        '<b>Фамилия:</b> ' + document.getElementById('surname').value + '<br>' +
+        '<b>Отчество:</b> ' + document.getElementById('fathername').value + '<br>' +
+        '<b>Телефон:</b>   ' + document.getElementById('phone').value + '<br>' +
+        '<b>Email:</b>   ' + document.getElementById('email').value + '<br>' +
+        '<b>Дата поездки:</b> ' + document.getElementById('triptime').value + '<br>' +
+        '<b>Выбранная страна:</b> ' + document.getElementById('country').value;
+        
+        } 
+        document.querySelector('#send').onclick = function() {
+            document.querySelector('dialog>p:nth-child(3)').innerHTML = '<b>Ваше мнение:</b> <br>' + document.getElementById('rate').value;
         }
         document.querySelector('#closeDialog').onclick = function() {
-         dialog.close(); // Прячем диалоговое окно
+         dialog.close();
         }
-      //  var I = document.getElementById('name').value;
-       // document.querySelector("dialog").innerHTML = document.getElementById("name").value;
-    function Func(){
-    document.querySelector('dialog').innerHTML = 'Имя: ' + document.getElementById("name").value + '\n' +
-    'Фамилия: ' + document.getElementById("surname").value + '\n' +
-    'Отчество: ' + document.getElementById("fathername").value + '\n' +
-    'Телефон: ' + document.getElementById("phone").value + '\n' +
-    'Email: ' + document.getElementById("email").value + '\n' +
-    'Страна: ' + document.getElementById("country").value + '\n';
-    }
-    document.getElementById("openDialog").onclick = Func;
+     //   document.getElementsByName('impression').checked = function() {
+    //    var rad = document.getElementsByName('impression').checked;
+       // for (var i=0; i<rad.length; i++) {
+           // if (rad[i].checked) {
+    //            document.getElementsByTagName('meter').value = rad.value;    
+     //   }
+    
+
 
 </script>
-
-<nav>
-    
-</nav>
-
 
 </body>
 </html>
