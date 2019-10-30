@@ -16,12 +16,12 @@
 <section1>
     <div>
         <span>Ваше общее впечатление:</span><br>
-        <input type="radio" name="impression" id=impression1 value="0.8">
-        <label for="impression1">Скорее положительное</label><br>
-        <input type="radio" name="impression" id=impression2 value="0.3">
-        <label for="impression2">Скорее отрицательное</label><br>
-        <input type="radio" name="impression" id=impression3 value="0.5">
-        <label for="impression3">Затрудняюсь ответить</label><br>
+        <input type="radio" class="radio" name="impression" id=impression1 value="0.8">
+        <label class="label" for="impression1">Скорее положительное</label><br>
+        <input type="radio" class="radio"name="impression" id=impression2 value="0.3">
+        <label class="label" for="impression2">Скорее отрицательное</label><br>
+        <input type="radio" class="radio" name="impression" id=impression3 value="0.5">
+        <label class="label" for="impression3">Затрудняюсь ответить</label><br>
         <div id="imp">
             <meter value="0.1">текст</meter>
         </div>
@@ -61,12 +61,14 @@
             </select>
         </div>
         <div>
-            <input type="checkbox" name="places" id="place1" checked>
-            <label for="place1">Гора лысая</label><br>
-            <input type="checkbox" name="places" id="place2" checked>
-            <label for="place2">Национальная библиотека</label><br>
-            <input type="checkbox" name="places" id="place2">
-            <label for="place3">Гродненский замок</label><br>
+            <form name="sightseens">
+            <input type="checkbox" class="checkbox" name="places" id="place1" value="Лысая гора">
+            <label class="label" for="place1" id="place11">Лысая гора</label><br>
+            <input type="checkbox" class="checkbox" name="places" id="place2" value="Национальная библиотека">
+            <label class="label"  for="place2" id="place22">Национальная библиотека</label><br>
+            <input type="checkbox" class="checkbox" name="places" id="place3" value="Гродненский зоопарк">
+            <label class="label" for="place3" id="place33">Гродненский зоопарк</label><br>
+            </form>
         </div>
     </div>
 </section>
@@ -91,42 +93,90 @@
     <textarea name='rate' id='rate'></textarea><br>
     <input type='submit' value='Отправить отзыв' id="send">
 </section>
-<button id="openDialog">Итоговая информация</button>
+<button id="openDialog" onclick="OpenDialog(); Sightseens();">Итоговая информация</button>
 <dialog> 
-<h3>Итоговая информация</h3>
+<h3></h3>
+<h4>Итоговая информация</h4>
+<p></p>
 <p></p>
 <p></p>
 <button id="closeDialog">Закрыть</button>
 </dialog>
+<button id='but1'>1234</button>
 
 
 <script>
         var dialog = document.querySelector('dialog');
-        
-        document.querySelector('#openDialog').onclick = function() {
+        function OpenDialog() {
         dialog.show(); 
-        document.querySelector('dialog>p:nth-child(2)').innerHTML = '<b>Имя:</b> ' + document.getElementById('name').value + '<br>' +
+        document.querySelector('dialog>h3:nth-child(1)').innerHTML = 'Спасибо за ваш отзыв, ' + document.getElementById('name').value +
+        ' ' + document.getElementById('surname').value + '!';
+        document.querySelector('dialog>p:nth-child(3)').innerHTML = '<b>Имя:</b> ' + document.getElementById('name').value + '<br>' +
         '<b>Фамилия:</b> ' + document.getElementById('surname').value + '<br>' +
         '<b>Отчество:</b> ' + document.getElementById('fathername').value + '<br>' +
         '<b>Телефон:</b>   ' + document.getElementById('phone').value + '<br>' +
         '<b>Email:</b>   ' + document.getElementById('email').value + '<br>' +
         '<b>Дата поездки:</b> ' + document.getElementById('triptime').value + '<br>' +
-        '<b>Выбранная страна:</b> ' + document.getElementById('country').value;
-        
+        '<b>Страна поездки:</b> ' + document.getElementById('country').value;
+        document.querySelector('dialog>p:nth-child(4)').innerHTML = '<b>Посещенные достопримечательности:</b> <br>';
         } 
         document.querySelector('#send').onclick = function() {
-            document.querySelector('dialog>p:nth-child(3)').innerHTML = '<b>Ваше мнение:</b> <br>' + document.getElementById('rate').value;
+            document.querySelector('dialog>p:nth-child(5)').innerHTML = '<b>Ваше мнение:</b> <br>' + document.getElementById('rate').value;
         }
         document.querySelector('#closeDialog').onclick = function() {
          dialog.close();
+         document.querySelector('dialog>p:nth-child(4)').innerHTML = 'Посещенные достопримечательности: <br>';
+
         }
-     //   document.getElementsByName('impression').checked = function() {
+      //  document.getElementsByName('impression').checked = function() {
     //    var rad = document.getElementsByName('impression').checked;
        // for (var i=0; i<rad.length; i++) {
            // if (rad[i].checked) {
     //            document.getElementsByTagName('meter').value = rad.value;    
      //   }
-    
+
+
+       // var selectedOption = document.getElementById('country').options[document.getElementById('country').selectedIndex];
+       function CountryChoice(a) {
+           if (a == 0) {
+            document.querySelector('#place11').innerHTML = 'Лысая гора';
+            sightseens[0].value = 'Лысая гора'; 
+            document.querySelector('#place22').innerHTML = 'Национальная библиотека';
+            sightseens[1].value = 'Национальная библиотека';
+            document.querySelector('#place33').innerHTML = 'Гродненский зоопарк';
+            sightseens[2].value = 'Гродненский зоопарк';
+           }
+           if (a == 1) {
+            document.querySelector('#place11').innerHTML = 'Колизей';
+            sightseens[0].value = 'Колизей';
+            document.querySelector('#place22').innerHTML = 'Пизанская башня';
+            sightseens[1].value = 'Пизанская башня';
+            document.querySelector('#place33').innerHTML = 'Венеция';
+            sightseens[2].value = 'Венеция';
+           }
+           if (a == 2) {
+            document.querySelector('#place11').innerHTML = 'Таллинская ратуша';
+            sightseens[0].value = 'Таллинская ратуша';
+            document.querySelector('#place22').innerHTML = 'Лахемаа';
+            sightseens[1].value = 'Лахемаа';
+            document.querySelector('#place33').innerHTML = 'Замок Тоомпеа';
+            sightseens[2].value = 'Замок Тоомпеа';
+           }
+       }
+       document.querySelector('select').onchange = function() { 
+           for (var i = 0; i<document.querySelector('select').length; i++) {
+                if (document.querySelector('select').options[i].selected == true) {
+                    CountryChoice(i);
+                }
+            }    
+        }
+        function Sightseens() {
+            for (var i = 0; i<sightseens.length; i++) {
+                if (sightseens[i].checked == true) {
+                document.querySelector('dialog>p:nth-child(4)').innerHTML += sightseens[i].value + '<br>';
+                }
+            }
+        }
 
 
 </script>

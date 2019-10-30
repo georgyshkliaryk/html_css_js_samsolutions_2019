@@ -65,7 +65,7 @@ section>div {
     margin-left: 2em;
     background: #E5E5E5;
     height: 3em;
-    width: 15em;
+    width: 20em;
 }
 section>div:nth-child(1) {
     text-transform: uppercase;
@@ -76,6 +76,7 @@ section>div:nth-child(1) {
 }
 section>div>div:nth-child(3) {
     text-align: left;
+    min-width: 400px;
 }
 #phone {
     margin-right: 15%;
@@ -101,10 +102,10 @@ section {
 #openDialog {
     position: fixed;
     bottom: 0;
-    left: 0;
-    width: 10em;
-    height: 3em;
-    font-size: 20px;
+    right: 0;
+    width: 12em;
+    height: 6em;
+    border: none;
 }
 #closeDialog {
     width: 10em;
@@ -112,12 +113,12 @@ section {
     position: relative;
     right: 0;
     bottom: 0;
-    font-size: 20px;
+    border: none;
 }
 dialog {
     position: fixed;
     left: 1.5em;
-    top: 2em;
+    top: 0.5em;
     width: 40em;
 }
 input {
@@ -133,7 +134,7 @@ textarea {
     min-height: 20em;
     background-color: #E0E0E0;
 }
-#send {
+#send, #closeDialog, #openDialog {
     width: 12em;
     height: 2em;
     background: #81B3D2;
@@ -144,22 +145,16 @@ textarea {
     margin-top: 1em;
     cursor: pointer;
 }
-#send:hover {
+#send:hover, #closeDialog:hover, #openDialog:hover {
     background: #81C6E9;
 }
-dialog h3 {
+dialog h4 {
     text-align: center;
 }
 [name="places"] {
     transform: scale(2);
     -ms-transform: scale(2);
     -webkit-transform: scale(2);
-}
-[name="impression"] {
-    transform: scale(2);
-    -ms-transform: scale(2);
-    -webkit-transform: scale(2);
-    padding: 10px;
 }
 #imp {
     padding-top: 1em;
@@ -168,3 +163,89 @@ dialog h3 {
 meter {
     width: 10em;
 }
+
+/*---------------------------------------*/
+.radio {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	margin: 10px 0 0 7px;
+}
+.radio + .label {
+	position: relative;
+	padding: 0 0 0 35px;
+	cursor: pointer;
+}
+.radio + .label:before {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 0;
+	width: 22px;
+	height: 22px;
+	border: 1px solid #CDD1DA;
+	border-radius: 50%;
+	background: #FFF;
+}
+.radio + .label:after {
+	content: '';
+	position: absolute;
+	top: 9px;
+	left: 4px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #9FD468;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.5);
+	opacity: 0;
+	transition: .2s;
+}
+.radio:checked + .label:after {
+	opacity: 1;
+}
+/*-----------------------------------------*/
+.checkbox {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	margin: 10px 0 0 20px;
+}
+.checkbox + .label {
+	position: relative;
+	padding: 0 0 0 60px;
+	cursor: pointer;
+}
+.checkbox + .label:before {
+	content: '';
+	position: absolute;
+	top: 5px;
+	left: 0;
+	width: 50px;
+	height: 26px;
+	border-radius: 13px;
+	background: #CDD1DA;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+	transition: .2s;
+}
+.checkbox + .label:after {
+	content: '';
+	position: absolute;
+	top: 7px;
+	left: 2px;
+	width: 22px;
+	height: 22px;
+	border-radius: 10px;
+	background: #FFF;
+	box-shadow: 0 2px 5px rgba(0,0,0,.3);
+	transition: .2s;
+}
+.checkbox:checked + .label:before {
+	background: #9FD468;
+}
+.checkbox:checked + .label:after {
+	left: 26px;
+}
+dialog {
+    font-size: 20px;
+}
+
