@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="main.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ЦВЕТ</title>
+</head>
+<body>
+    <h1>Поменять цвет:</h1>
+    <button id="color" onclick="changecol()">Цвет фона</button>
+<script>
+        var i = 0;
+window.onload = function() {
+document.body.style.backgroundColor = "#bb" + localStorage.getItem(color[i]);
+}
+        
+function RandomColor(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; 
+}  
+ 
+function changecol() {
+    localStorage.setItem(color[i], RandomColor(1000, 9999)); 
+    document.body.style.backgroundColor = "#bb" + localStorage.getItem(color[i]);
+    i++;
+}
+</script>
+</body>
+</html>

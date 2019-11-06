@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ТЕЛКНИГА</title>
+</head>
+<body>
+    <h2>Телефонная книга</h2>
+    <button onclick="CreateUser()">Новый контакт</button>
+    <button onclick="AllUsers()">Вывести все контакты</button>
+    <h3></h3>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <script>
+   var i = 0;    
+function CreateUser() {
+    localStorage.setItem(i, prompt('Введите имя контакта:'));
+    i++;
+    localStorage.setItem(i, prompt('Введите телефон контакта:'));
+    i++;
+}
+function AllUsers() {
+    document.getElementsByTagName("h3").innerHTML = "Список Ваших контактов:";
+    for (var i = 0; i < localStorage.length; i++) {
+        document.getElementsByTagName('p')[i].innerHTML = localStorage.getItem(i) + " ---------- " + localStorage.getItem(++i);
+    }
+}
+</script>
+</body>
+</html>
